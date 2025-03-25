@@ -1,7 +1,8 @@
 # SEBAR 프로젝트 명세서
 
 ## 1. 프로젝트 개요
-
+file:///home/ssafy/Pictures/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-03-25%2011-36-49.png
+-41:-45:85:36
 **프로젝트명**: SEBAR - 로봇 균형 유지 및 원격 제어 시스템  
 **기한**: 2025년 3월 25일 (화)  
 **기술 스택**: Vue.js, Express.js, WebSocket, Raspberry Pi, Chart.js, ROS2  
