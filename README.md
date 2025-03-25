@@ -44,9 +44,26 @@
   - MySQL 기반 로그 데이터를 웹 UI에서 출력
   - `Save Log` 버튼을 통해 로그를 저장하고 조회 가능
 
-## 4. 데이터 모델
 
-### 4.1 로봇 상태 데이터 구조 (JSON)
+
+## 4. API 명세
+
+```
++-----------+-------------+------+-----+-------------------+-------------------+
+| Field     | Type        | Null | Key | Default           | Extra             |
++-----------+-------------+------+-----+-------------------+-------------------+
+| id        | int         | NO   | PRI | NULL              | auto_increment    |
+| mode      | varchar(50) | YES  |     | NULL              |                   |
+| speed     | int         | YES  |     | NULL              |                   |
+| stability | int         | YES  |     | NULL              |                   |
+| timestamp | datetime    | YES  |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
++-----------+-------------+------+-----+-------------------+-------------------+
+
+```
+
+## 5. 데이터 모델
+
+### 5.1 로봇 상태 데이터 구조 (JSON)
 ```json
 {
   "mode": "balancing",
@@ -56,7 +73,7 @@
 }
 ```
 
-### 4.2 로그 데이터 테이블 (MySQL)
+### 5.2 로그 데이터 테이블 (MySQL)
 ```
 +----+-----------+-------+-----------+---------------------+
 | id | mode      | speed | stability | timestamp           |
@@ -68,36 +85,6 @@
 |  2 | Creeping  |    28 |       100 | 2025-03-20 06:39:07 |
 |  1 | Balancing |    22 |        75 | 2025-03-20 06:34:28 |
 +----+-----------+-------+-----------+---------------------+
-```
-
-## 5. API 명세
-
-### 5.1 로봇 상태 조회 API
-- **Endpoint**: `GET /api/robot/status`
-- **Response**:
-```json
-{
-  "mode": "balancing",
-  "speed": 15,
-  "stability": 20,
-  "timestamp": "2025-03-20 07:40:17"
-}
-```
-
-### 5.2 모드 변경 API
-- **Endpoint**: `POST /api/robot/mode`
-- **Request**:
-```json
-{
-  "mode": "creeping"
-}
-```
-- **Response**:
-```json
-{
-  "message": "Mode updated successfully",
-  "status": "success"
-}
 ```
 
 ## 6. 시스템 아키텍처
